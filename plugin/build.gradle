@@ -47,7 +47,7 @@ opensearchplugin {
 }
 
 javadoc.enabled = false
-test.enabled = false
+test.enabled = true
 loggerUsageCheck.enabled = false
 dependencyLicenses.enabled = false
 thirdPartyAudit.enabled = false
@@ -72,6 +72,13 @@ dependencies {
     api project(':opensearch')
 }
 
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+    }
+}
 
 ext {
     projectSubstitutions = [:]
